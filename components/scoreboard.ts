@@ -35,7 +35,7 @@ class Scoreboard implements ScoreboardI {
   }
 
   public addMatch(teams: Teams) {
-    this.matches.push([teams, [0, 0]])
+    this.matches.push([[...teams], [0, 0]])
     return this.formatScore([teams, [0, 0]])
   }
 
@@ -55,7 +55,7 @@ class Scoreboard implements ScoreboardI {
     const foundIndex = this.findMatchIndex(teams)
 
     if (foundIndex) {
-      this.matches[foundIndex] = match
+      this.matches[foundIndex] = [...match]
       return this.formatScore(match)
     } else {
       return null
