@@ -38,6 +38,15 @@ describe("Scoreboard basic operations", () => {
     expect(result).toBe(`${match[0]} ${newScore[0]} - ${match[1]} ${newScore[1]}`)
   })
 
-  it.todo("get a summary of games in progress ordered by their total score")
+  it("get a summary of games in progress ordered by their total score", () => {
+    const expectedSummary = initialMatches
+      // TODO Remove ts-ignore
+      // @ts-ignore
+      .sort((a, b) => (a[1][0] + a[1][1]) - (b[1][0] + b[1][1]))
+      .reverse()
+
+    const summary = board.getSummary()
+    expect(summary).toBe(expectedSummary)
+  })
 
 })
