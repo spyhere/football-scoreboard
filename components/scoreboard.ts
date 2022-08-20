@@ -9,7 +9,7 @@ interface ScoreboardI {
 
   updateScore(match: Match): string | null
 
-  getSummary(): Match[]
+  getSummary(): string[]
 }
 
 class Scoreboard implements ScoreboardI {
@@ -62,10 +62,11 @@ class Scoreboard implements ScoreboardI {
     }
   }
 
-  public getSummary(): Match[] {
+  public getSummary(): string[] {
     return this.matches
       .sort((a, b) => (a[1][0] + a[1][1]) - (b[1][0] + b[1][1]))
       .reverse()
+      .map(it => this.formatScore(it))
   }
 
 }

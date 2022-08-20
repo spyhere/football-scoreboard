@@ -33,6 +33,10 @@ describe("Scoreboard basic operations", () => {
     const expectedSummary = initialMatches
       .sort((a, b) => (a[1][0] + a[1][1]) - (b[1][0] + b[1][1]))
       .reverse()
+      .map((it) => {
+        const [[homeTeam, awayTeam], [homeScore, awayScore]] = it
+        return `${homeTeam} ${homeScore} - ${awayTeam} ${awayScore}`
+      })
 
     const summary = board.getSummary()
     expect(summary).toStrictEqual(expectedSummary)
