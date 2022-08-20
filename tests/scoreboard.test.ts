@@ -22,17 +22,17 @@ describe("Scoreboard basic operations", () => {
   })
 
   it("finish game currently in progress", () => {
-    const [match, score] = initialMatches[2]
-    const result = board.finishMatch(match)
-    expect(result).toBe(`${match[0]} ${score[0]} - ${match[1]} ${score[1]}`)
+    const [teams, score] = initialMatches[2]
+    const result = board.finishMatch(teams)
+    expect(result).toBe(`${teams[0]} ${score[0]} - ${teams[1]} ${score[1]}`)
     expect(board.activeMatchesCount).toBe(initialMatches.length - 1)
   })
 
   it("update the score", () => {
-    const [match, score] = initialMatches[1]
+    const [teams, score] = initialMatches[1]
     const newScore = [score[0], score[1] as number + 1]
-    const result = board.updateScore([match, newScore])
-    expect(result).toBe(`${match[0]} ${newScore[0]} - ${match[1]} ${newScore[1]}`)
+    const result = board.updateScore([teams, newScore])
+    expect(result).toBe(`${teams[0]} ${newScore[0]} - ${teams[1]} ${newScore[1]}`)
   })
 
   it("get a summary of games in progress ordered by their total score", () => {
