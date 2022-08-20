@@ -31,7 +31,12 @@ describe("Scoreboard basic operations", () => {
     expect(board.activeMatchesCount).toBe(initialMatches.length - 1)
   })
 
-  it.todo("update the score")
+  it("update the score", () => {
+    const [match, score] = initialMatches[1]
+    const newScore = [score[0], score[1] as number + 1]
+    const result = board.updateScore(match, newScore)
+    expect(result).toBe(`${match[0]} ${newScore[0]} - ${match[1]} ${newScore[1]}`)
+  })
 
   it.todo("get a summary of games in progress ordered by their total score")
 
