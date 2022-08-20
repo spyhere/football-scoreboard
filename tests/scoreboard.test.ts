@@ -2,7 +2,7 @@ import Scoreboard from "../components/scoreboard"
 import initialMatches from "./fixtures/matches"
 
 describe("Scoreboard basic operations", () => {
-  let board
+  let board: Scoreboard
 
   beforeEach(() => {
     board = new Scoreboard(initialMatches)
@@ -24,7 +24,7 @@ describe("Scoreboard basic operations", () => {
 
   it("update the score", () => {
     const [teams, score] = initialMatches[1]
-    const newScore = [score[0], score[1] + 1]
+    const newScore: [number, number] = [score[0], score[1] + 1]
     const result = board.updateScore([teams, newScore])
     expect(result).toBe(`${teams[0]} ${newScore[0]} - ${teams[1]} ${newScore[1]}`)
   })
