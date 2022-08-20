@@ -7,8 +7,10 @@ interface ScoreboardI {
   activeMatchesCount: number
 
   addMatch(newMatch: Teams): string
-  finishMatch(teams: Teams): string|null
-  updateScore(match: Match): string|null
+
+  finishMatch(teams: Teams): string | null
+
+  updateScore(match: Match): string | null
 }
 
 class Scoreboard implements ScoreboardI {
@@ -23,7 +25,7 @@ class Scoreboard implements ScoreboardI {
     return `${homeTeam} ${homeScore} - ${awayTeam} ${awayScore}`
   }
 
-  private findMatchIndex(teams: Teams): number|null {
+  private findMatchIndex(teams: Teams): number | null {
     const [homeTeam, awayTeam] = teams
     const index = this.matches.findIndex(it => (it[0][0] === homeTeam) && (it[0][1] === awayTeam))
     return index >= 0 ? index : null
@@ -38,7 +40,7 @@ class Scoreboard implements ScoreboardI {
     return this.formatScore([newMatch, [0, 0]])
   }
 
-  public finishMatch(teams: Teams): string|null {
+  public finishMatch(teams: Teams): string | null {
     const [homeTeam, awayTeam] = teams
     const existingMatch = this.matches.findIndex(it => (it[0][0] === homeTeam) && (it[0][1] === awayTeam))
 
@@ -50,7 +52,7 @@ class Scoreboard implements ScoreboardI {
     }
   }
 
-  public updateScore(match: Match): string|null {
+  public updateScore(match: Match): string | null {
     const [teams] = match
     const foundIndex = this.findMatchIndex(teams)
 
