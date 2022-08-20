@@ -30,7 +30,7 @@ describe("Scoreboard basic operations", () => {
 
   it("update the score", () => {
     const [teams, score] = initialMatches[1]
-    const newScore = [score[0], score[1] as number + 1]
+    const newScore = [score[0], score[1] + 1]
     const result = board.updateScore([teams, newScore])
     expect(result).toBe(`${teams[0]} ${newScore[0]} - ${teams[1]} ${newScore[1]}`)
   })
