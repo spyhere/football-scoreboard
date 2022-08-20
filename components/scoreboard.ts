@@ -11,6 +11,8 @@ interface ScoreboardI {
   finishMatch(teams: Teams): string | null
 
   updateScore(match: Match): string | null
+
+  getSummary(): Match[]
 }
 
 class Scoreboard implements ScoreboardI {
@@ -61,6 +63,12 @@ class Scoreboard implements ScoreboardI {
     } else {
       return null
     }
+  }
+
+  public getSummary(): Match[] {
+    return this.matches
+      .sort((a, b) => (a[1][0] + a[1][1]) - (b[1][0] + b[1][1]))
+      .reverse()
   }
 
 }
