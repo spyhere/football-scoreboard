@@ -4,7 +4,7 @@
   "description": "Live Football World Cup Scoreboard library",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch --verbose"
+    "test": "jest --watch"
   },
   "keywords": [
     "javascript",
