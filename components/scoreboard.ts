@@ -27,8 +27,8 @@ class Scoreboard implements ScoreboardI {
   }
 
   public addMatch(newMatch: Teams) {
-    this.matches.push([newMatch, [0,0]])
-    return `${newMatch[0]} 0 - ${newMatch[1]} 0`
+    this.matches.push([newMatch, [0, 0]])
+    return this.formatScore([newMatch, [0, 0]])
   }
 
   public finishMatch(teams: Teams): string|null {
