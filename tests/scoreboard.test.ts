@@ -24,7 +24,12 @@ describe("Scoreboard basic operations", () => {
     expect(board.activeMatchesCount).toBe(initialMatches.length + 1)
   })
 
-  it.todo("finish game currently in progress")
+  it("finish game currently in progress", () => {
+    const [match, score] = initialMatches[2]
+    const result = board.finishMatch(match)
+    expect(result).toBe(`${match[0]} ${score[0]} - ${match[1]} - ${score[1]}`)
+    expect(board.activeMatchesCount).toBe(initialMatches.length - 1)
+  })
 
   it.todo("update the score")
 
