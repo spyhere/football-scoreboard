@@ -1,7 +1,4 @@
-export type Teams = [string, string]
-export type Score = [number, number]
-export type Match = [Teams, Score]
-
+import { Match, Teams } from "../types/common"
 
 interface ScoreboardI {
   activeMatchesCount: number

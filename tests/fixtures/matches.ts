@@ -1,4 +1,4 @@
-import { Match } from "../../components/scoreboard"
+import { Match } from "../../types/common"
 
 const matches: Match[] = [
   [["Mexico", "Canada"], [0, 5]],
