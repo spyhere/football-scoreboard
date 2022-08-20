@@ -6,7 +6,7 @@ export type Match = [Teams, Score]
 interface ScoreboardI {
   activeMatchesCount: number
 
-  addMatch(newMatch: Teams)
+  addMatch(newMatch: Teams): string
   finishMatch(teams: Teams): string|null
 }
 
