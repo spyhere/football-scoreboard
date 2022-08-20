@@ -41,11 +41,10 @@ class Scoreboard implements ScoreboardI {
   }
 
   public finishMatch(teams: Teams): string | null {
-    const [homeTeam, awayTeam] = teams
-    const existingMatch = this.matches.findIndex(it => (it[0][0] === homeTeam) && (it[0][1] === awayTeam))
+    const foundIndex = this.findMatchIndex(teams)
 
-    if (existingMatch >= 0) {
-      const finishedMatch = this.matches.splice(existingMatch, 1)[0]
+    if (foundIndex) {
+      const finishedMatch = this.matches.splice(foundIndex, 1)[0]
       return this.formatScore(finishedMatch)
     } else {
       return null
