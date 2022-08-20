@@ -6,7 +6,7 @@ export type Match = [Teams, Score]
 interface ScoreboardI {
   activeMatchesCount: number
 
-  addMatch(newMatch: Teams): string
+  addMatch(teams: Teams): string
 
   finishMatch(teams: Teams): string | null
 
@@ -37,9 +37,9 @@ class Scoreboard implements ScoreboardI {
     return this.matches.length
   }
 
-  public addMatch(newMatch: Teams) {
-    this.matches.push([newMatch, [0, 0]])
-    return this.formatScore([newMatch, [0, 0]])
+  public addMatch(teams: Teams) {
+    this.matches.push([teams, [0, 0]])
+    return this.formatScore([teams, [0, 0]])
   }
 
   public finishMatch(teams: Teams): string | null {
