@@ -1,4 +1,8 @@
-import { Match, Teams } from "../types/common"
+import {
+  Match,
+  Score,
+  Teams
+} from "../types/common"
 
 interface ScoreboardI {
   activeMatchesCount: number
@@ -30,6 +34,15 @@ class Scoreboard implements ScoreboardI {
     return index >= 0 ? index : null
   }
 
+  private isInputScoreValid(score: Score, refScore: Score) {
+    if ((score[0] + score[1]) - (refScore[0] + refScore[1]) === 1) {
+      return true
+    } else {
+      console.error("Cannot update the match, score isn't valid")
+      return false
+    }
+  }
+
   public get activeMatchesCount() {
     return this.matches.length
   }
@@ -51,10 +64,10 @@ class Scoreboard implements ScoreboardI {
   }
 
   public updateScore(match: Match): string | null {
-    const [teams] = match
+    const [teams, score] = match
     const foundIndex = this.findMatchIndex(teams)
 
-    if (foundIndex) {
+    if (foundIndex && this.isInputScoreValid(score, this.matches[foundIndex][1])) {
       this.matches[foundIndex] = [...match]
       return this.formatScore(match)
     } else {
