@@ -15,7 +15,7 @@ interface ScoreboardI {
 class Scoreboard implements ScoreboardI {
   private readonly matches: Match[]
 
-  constructor(matches: Match[]) {
+  constructor(matches: Match[] = []) {
     this.matches = [...matches]
   }
 
