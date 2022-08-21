@@ -1,4 +1,4 @@
-import { Match } from "../../types/common"
+import { Match } from "../../types"
 
 const matches: Match[] = [
   [["Mexico", "Canada"], [0, 5]],
