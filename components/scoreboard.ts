@@ -2,7 +2,7 @@ import {
   Match,
   Score,
   Teams
-} from "../types/common"
+} from "../types"
 
 interface ScoreboardI {
   activeMatchesCount: number

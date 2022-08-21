@@ -1,4 +1,4 @@
-import Scoreboard from "../components/scoreboard"
+import { Scoreboard } from "../components"
 import initialMatches from "./fixtures/matches"
 
 describe("Scoreboard basic operations", () => {
