@@ -59,6 +59,7 @@ class Scoreboard implements ScoreboardI {
       const finishedMatch = this.matches.splice(foundIndex, 1)[0]
       return this.formatScore(finishedMatch)
     } else {
+      console.error("Cannot finish the match that doesn't exist")
       return null
     }
   }
