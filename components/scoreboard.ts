@@ -6,13 +6,9 @@ import {
 
 interface ScoreboardI {
   activeMatchesCount: number
-
   addMatch(teams: Teams): string
-
   finishMatch(teams: Teams): string | null
-
   updateScore(match: Match): string | null
-
   getSummary(): string[]
 }
 
