@@ -1,5 +1,6 @@
 import { Scoreboard } from "../components"
 import initialMatches from "./fixtures/matches"
+import { Match } from "../types"
 
 describe("Scoreboard basic operations", () => {
   let board: Scoreboard
@@ -30,13 +31,18 @@ describe("Scoreboard basic operations", () => {
   })
 
   it("get a summary of games in progress ordered by their total score", () => {
-    const expectedSummary = initialMatches
-      .sort((a, b) => (a[1][0] + a[1][1]) - (b[1][0] + b[1][1]))
-      .reverse()
-      .map((it) => {
-        const [[homeTeam, awayTeam], [homeScore, awayScore]] = it
-        return `${homeTeam} ${homeScore} - ${awayTeam} ${awayScore}`
-      })
+    const matches: Match[] = [
+      [["Mexico", "Canada"], [0 ,5]],
+      [["Uruguay", "Italy"], [6 ,6]],
+      [["Spain", "Brazil"], [10 ,2]],
+    ]
+    board = new Scoreboard(matches)
+
+    const expectedSummary = [
+      "Spain 10 - Brazil 2",
+      "Uruguay 6 - Italy 6",
+      "Mexico 0 - Canada 5"
+    ]
 
     const summary = board.getSummary()
     expect(summary).toStrictEqual(expectedSummary)
